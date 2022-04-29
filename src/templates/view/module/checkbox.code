@@ -1,0 +1,5 @@
+<el-form-item label="{{{comment}}}:" prop="{{{field}}}{{{suffix}}}">
+                    <el-checkbox-group v-model="{{{prefix}}}.{{{field}}}{{{suffix}}}">
+                        <el-checkbox v-for="(item, index) in {{{field}}}" :key="index" :label="item.value">{{ item.label }}</el-checkbox>
+                    </el-checkbox-group>
+                </el-form-item>

@@ -1,0 +1,3 @@
+<el-form-item label="{{{comment}}}:" prop="{{{field}}}{{{suffix}}}">
+                    <ImageUpload v-model="{{{prefix}}}.{{{field}}}{{{suffix}}}" :limit="10" />
+                </el-form-item>

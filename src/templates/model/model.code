@@ -1,0 +1,20 @@
+<?php
+
+namespace {{{modelNamespace}}};
+
+use app\{{{modelPath}}}\model\BaseModel;
+{{{useSoftDelete}}}
+
+class {{{modelName}}} extends BaseModel
+{
+
+    protected $name = "{{{table}}}";
+    // 追加属性
+    protected $append = [{{{append}}}];
+    protected $deleteTime= {{{deleteTime}}};
+    {{{useSoftDeleteTrait}}}
+
+    {{{relationList}}}
+    {{{selectList}}}
+    {{{textAttr}}}
+}

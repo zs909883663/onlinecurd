@@ -1,0 +1,7 @@
+
+    public function get{{{nameUpper}}}TextAttr($value,$data)
+    {
+         $value = $value ? $value : (isset($data['{{{name}}}']) ? $data['{{{name}}}'] : '');
+        $list = $this->get{{{nameUpper}}}List();
+        return isset($list[$value]) ? $list[$value] : '';
+    }

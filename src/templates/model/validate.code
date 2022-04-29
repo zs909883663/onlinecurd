@@ -1,0 +1,17 @@
+<?php
+
+namespace {{{validateNamespace}}};
+
+use think\Validate;
+
+class {{{validateName}}} extends Validate
+{
+
+     protected $rule =   [
+        {{{rules}}}   
+    ];
+
+    protected $scene = [
+        'edit'  =>  [{{{editfields}}}],
+    ]; 
+}

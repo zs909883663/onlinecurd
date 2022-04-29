@@ -1,0 +1,63 @@
+
+    /**
+     * 列表
+     */
+    public function index()
+    {
+       
+        list($limit, $where,$sortArr) = $this->buildTableParames();
+    
+        $list = $this->model
+            {{{relationIndexMethod}}}
+            ->where($where)
+            ->order($sortArr)
+             ->paginate($limit);
+        $data = [
+            'code'  => 1,
+            'msg'   => '',
+            'count' => $list->total(),
+            'data' => $list->items(),
+        ];
+        return json($data);
+    }
+
+    /**
+     * 导出
+     */
+    public function export()
+    {
+        list($limit, $where, $sortArr) = $this->buildTableParames();
+        $tableName = $this->model->getName();
+        $tableName = CommonTool::humpToLine(lcfirst($tableName));
+        $prefix = config('database.connections.mysql.prefix');
+        $dbList = Db::query("show full columns from {$prefix}{$tableName}");
+        $header = [];
+        foreach ($dbList as $vo) {
+            $comment = !empty($vo['Comment']) ? $vo['Comment'] : $vo['Field'];
+            if (!in_array($vo['Field'], $this->noExportFields)) {
+                $header[] = [$comment, $vo['Field']];
+            }
+        }
+        $relationField =  [{{{relationField}}}];
+        foreach ($relationField as $k => $v) {
+            $tableName = $k;
+            $tableName = CommonTool::humpToLine(lcfirst($tableName));
+            $prefix = config('database.connections.mysql.prefix');
+            $dbList = Db::query("show full columns from {$prefix}{$tableName}");
+            foreach ($dbList as $vo) {
+                $comment = !empty($vo['Comment']) ? $vo['Comment'] : $vo['Field'];
+                if (in_array($vo['Field'], $v)) {
+                    $header[] = [$comment, $tableName . '.' . $vo['Field']];
+                }
+            }
+        }
+        $list = $this->model
+            {{{relationIndexMethod}}}
+            ->where($where)
+            ->limit(100000)
+            ->order($sortArr)
+            ->select()
+            ->toArray();
+        $fileName = "export_" . $this->model->getName() . "_" . time();
+        return Excel::exportData($list, $header, $fileName, 'xlsx');
+    }
