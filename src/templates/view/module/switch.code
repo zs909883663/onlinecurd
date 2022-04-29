@@ -1,0 +1,3 @@
+<el-form-item label="{{{comment}}}:" prop="{{{field}}}{{{suffix}}}">
+                    <el-switch v-model="{{{prefix}}}.{{{field}}}{{{suffix}}}" active-color="#13ce66" :active-value="1" :inactive-value="0"> </el-switch>
+                </el-form-item>

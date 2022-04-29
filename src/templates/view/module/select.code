@@ -1,0 +1,5 @@
+<el-form-item label="{{{comment}}}:" prop="{{{field}}}{{{suffix}}}">
+                    {{{space}}}<el-select v-model="{{{prefix}}}.{{{field}}}{{{suffix}}}" placeholder="请选择{{{comment}}}" clearable>
+                        {{{space}}}<el-option v-for="(item, index) in {{{field}}}" :key="index" :label="item.label" :value="item.value" />
+                    {{{space}}}</el-select>
+                {{{space}}}</el-form-item>

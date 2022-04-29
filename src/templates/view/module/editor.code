@@ -1,0 +1,4 @@
+<el-form-item label="{{{comment}}}:" prop="{{{field}}}{{{suffix}}}">
+                    <!-- 编辑器 -->
+                    <Editor v-model="{{{prefix}}}.{{{field}}}{{{suffix}}}" />
+                </el-form-item>         

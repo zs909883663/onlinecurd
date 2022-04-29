@@ -1,0 +1,5 @@
+<el-form-item label="{{{comment}}}:" prop="{{{field}}}{{{suffix}}}">
+                    <el-radio-group v-model="{{{prefix}}}.{{{field}}}{{{suffix}}}">
+                        <el-radio v-for="(item, index) in {{{field}}}" :key="index" :label="item.value">{{ item.label }}</el-radio>
+                    </el-radio-group>
+                </el-form-item>

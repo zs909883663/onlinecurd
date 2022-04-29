@@ -1,0 +1,3 @@
+<el-form-item label="{{{comment}}}:" prop="{{{field}}}{{{suffix}}}">
+                    <el-date-picker v-model="{{{prefix}}}.{{{field}}}{{{suffix}}}" type="datetime" value-format="timestamp" placeholder="选择{{{comment}}}" />
+                </el-form-item>        

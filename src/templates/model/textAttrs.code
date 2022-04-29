@@ -1,0 +1,8 @@
+
+    public function get{{{nameUpper}}}TextAttr($value,$data)
+    {
+        $value = $value ? $value : (isset($data['{{{name}}}']) ? $data['{{{name}}}'] : '');
+        $valueArr = explode(',', $value);
+        $list = $this->get{{{nameUpper}}}List();
+        return implode(',', array_intersect_key($list, array_flip($valueArr)));
+    }

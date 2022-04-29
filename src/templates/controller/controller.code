@@ -1,0 +1,30 @@
+<?php
+
+namespace {{{controllerNamespace}}};
+
+use app\common\controller\CommonBase;
+use think\App;
+{{{usePackage}}}
+/**
+ * {{{controllerName}}}控制器
+ */
+class {{{controllerName}}} extends CommonBase
+{
+
+    protected $model = null;
+
+    protected $validate = null;
+
+    protected $relationSearch = {{{relationSearch}}};
+
+    public function __construct(App $app)
+    {
+        parent::__construct($app);
+
+        $this->model = new {{{modelFilename}}}();
+
+        $this->validate = {{{validateFilename}}}::class;
+    }
+
+    {{{indexMethod}}}
+}

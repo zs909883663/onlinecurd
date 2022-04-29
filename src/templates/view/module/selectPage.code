@@ -1,0 +1,3 @@
+<el-form-item label="{{{comment}}}:" prop="{{{field}}}{{{suffix}}}">
+                    {{{space}}}<SelectPage v-model="{{{prefix}}}.{{{field}}}{{{suffix}}}" :url="'/admin/{{{relation}}}/selectPage'" :multiple="false" />
+                {{{space}}}</el-form-item>

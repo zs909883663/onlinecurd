@@ -1,0 +1,12 @@
+<el-form-item label="{{{comment}}}:" prop="{{{field}}}{{{suffix}}}">
+                            <el-date-picker
+                                v-model="{{{prefix}}}.{{{field}}}{{{suffix}}}"
+                                type="datetimerange"
+                                range-separator="至"
+                                start-placeholder="开始"
+                                end-placeholder="结束"
+                                align="right"
+                                value-format="yyyy-MM-dd HH:mm:ss"
+                            >
+                            </el-date-picker>
+                          </el-form-item>

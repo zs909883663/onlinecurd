@@ -1,0 +1,3 @@
+<el-form-item label="{{{comment}}}:" prop="{{{field}}}{{{suffix}}}">
+                    <FileUpload v-model="{{{prefix}}}.{{{field}}}{{{suffix}}}" />
+                </el-form-item>
