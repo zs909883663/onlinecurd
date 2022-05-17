@@ -27,30 +27,14 @@
     public function export()
     {
         list($limit, $where, $sortArr) = $this->buildTableParames();
-        $tableName = $this->model->getName();
-        $tableName = CommonTool::humpToLine(lcfirst($tableName));
-        $prefix = config('database.connections.mysql.prefix');
-        $dbList = Db::query("show full columns from {$prefix}{$tableName}");
+        $fields = $this->request->get('fields');
+        $fields = json_decode($fields, true);
+
         $header = [];
-        foreach ($dbList as $vo) {
-            $comment = !empty($vo['Comment']) ? $vo['Comment'] : $vo['Field'];
-            if (!in_array($vo['Field'], $this->noExportFields)) {
-                $header[] = [$comment, $vo['Field']];
-            }
+        foreach ($fields as $vo) {
+            $header[] = [$vo['comment'], $vo['field']];
         }
-        $relationField =  [{{{relationField}}}];
-        foreach ($relationField as $k => $v) {
-            $tableName = $k;
-            $tableName = CommonTool::humpToLine(lcfirst($tableName));
-            $prefix = config('database.connections.mysql.prefix');
-            $dbList = Db::query("show full columns from {$prefix}{$tableName}");
-            foreach ($dbList as $vo) {
-                $comment = !empty($vo['Comment']) ? $vo['Comment'] : $vo['Field'];
-                if (in_array($vo['Field'], $v)) {
-                    $header[] = [$comment, $tableName . '.' . $vo['Field']];
-                }
-            }
-        }
+        
         $list = $this->model
             {{{relationIndexMethod}}}
             ->where($where)

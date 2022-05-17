@@ -2,13 +2,13 @@
 
 namespace {{{controllerNamespace}}};
 
-use app\common\controller\CommonBase;
+use app\common\controller\AdminBase;
 use think\App;
 {{{usePackage}}}
 /**
  * {{{controllerName}}}控制器
  */
-class {{{controllerName}}} extends CommonBase
+class {{{controllerName}}} extends AdminBase
 {
 
     protected $model = null;

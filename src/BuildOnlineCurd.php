@@ -11,7 +11,7 @@
 
 namespace onlinecurd;
 
-use onlinecurd\TableException;
+use onlinecurd\exceptions\TableException;
 use think\exception\FileException;
 use think\facade\Db;
 use think\facade\Log;
