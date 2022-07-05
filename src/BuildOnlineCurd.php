@@ -1590,7 +1590,7 @@ EOD;
                 if ($k == 0) {
                     $controllerFilename = "{$v}{$this->DS}";
                 } else {
-                    $controllerFilename .= "_" . lcfirst($v);
+                    $controllerFilename .= ucfirst($v);
                 }
             }
         }
