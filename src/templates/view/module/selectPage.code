@@ -1,3 +1,4 @@
 <el-form-item label="{{{comment}}}:" prop="{{{field}}}{{{suffix}}}">
-                    {{{space}}}<SelectPage v-model="{{{prefix}}}.{{{field}}}{{{suffix}}}" :url="'/admin/{{{relation}}}/selectPage'" :multiple="false" />
+                    <!--请将show_field，query_field =后面的id换成要展示和检索的字段，如 name或者title  ----->
+                    {{{space}}}<SelectPage v-model="{{{prefix}}}.{{{field}}}{{{suffix}}}" :url="'/admin/{{{relation}}}/selectPage'" show_field="id" query_field="id" :multiple="false" />
                 {{{space}}}</el-form-item>
